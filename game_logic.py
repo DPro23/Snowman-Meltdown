@@ -37,6 +37,10 @@ def play_game():
         guess = input("Guess a letter: ").lower()
         print("You guessed:", guess)
 
+        if len(guess) != 1:
+            print("Please enter a single letter.")
+            continue
+
         if guess in secret_word:
             guessed_letters.append(guess)
         else:
@@ -47,6 +51,6 @@ def play_game():
             display_game_state(mistakes, secret_word, guessed_letters)
             break
 
-        elif len(guessed_letters) == len(secret_word):
+        if len(guessed_letters) == len(secret_word):
             print("Congratulations, you saved the Snowman!!!")
             break
